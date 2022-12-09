@@ -1,0 +1,26 @@
+<%- include("partials/header") -%>
+<div class="container-fluid text-montserrat">
+  <div class="box" id="heading">
+    <h1 class="text-ubuntu"> <%= dateToday %> </h1>
+  </div>
+
+  <div class="box">
+
+    <% newListItems.forEach( (item) =>{ %>
+    <form action="/show/<%=item.id %>" method="get">
+      <div class="item text-open-sans">
+        <input type="checkbox" onchange="this.form.submit()">
+        <p class="itemInner text-open-sans"><%= item.name %> </p>
+      </div>
+    </form>
+    <% })%>
+
+
+
+    <form class=" item text-open-sans" action="/" method="post">
+      <input type="text" name="newItem" placeholder="Add New Item" autocomplete="off" required>
+      <button class="newItem" type="submit" name="list">+</button>
+    </form>
+  </div>
+</div>
+<%- include("partials/footer") -%>

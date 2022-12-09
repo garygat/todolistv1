@@ -1,0 +1,39 @@
+<!-- +HEAD BOILERPLATE -->
+<%- include('partials/header') %>
+
+<!-- +NAVBAR BOILERPLATE -->
+
+<!-- =MAIN -->
+<div class="container-fluid py-4">
+   <h1 class="text-black-50 text-center py-5 display-4 text-open-sans">Edit Item</h1>
+
+
+   <!-- =POST-->
+   <div class="py-5  container">
+      <form action="/<%=item.id%>/?_method=PUT" method="post">
+         <!-- <div class="form-group">
+               <label for="username">Name</label>
+               <input type="text" class="form-control" id="username" name="username" required>
+            </div> -->
+         <div class="form-group">
+            <label for="text">Message</label>
+            <textarea class="form-control" id="text" name="text" cols="20" rows="5"
+               required><%= item.name %> </textarea>
+         </div>
+         <!-- <div class="form-group form-check">
+               <input type="checkbox" class="form-check-input" id="exampleCheck1">
+               <label class="form-check-label" for="exampleCheck1">Agree to terms & conditions</label>
+            </div> -->
+         <div class="pt-5 text-center">
+            <button type="submit" class="btn btn-primary">Submit</button><a href="/"> <button type="button"
+                  class="btn btn-warning text-white">Back to Index </button></a>
+         </div>
+      </form>
+
+   </div>
+</div>
+<!-- +FOOTER BOILERPLATE -->
+<%- include('partials/footer') %>
+</body>
+
+</html>
