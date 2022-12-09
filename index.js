@@ -60,20 +60,20 @@ const item3 = new Item({
 //# GET
 const defaultItems = [item1, item2, item3];
 app.get('/te', function (req, res) {
-  Item.find({}, (err, foundItems) => {
-    if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, (err) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('Added Items to DB');
-        }
-      });
-      res.redirect('/');
-    } else {
-      res.render('list', { listTitle: 'Today', newListItems: foundItems, footerText, title, dateToday });
-    }
-  });
+  // Item.find({}, (err, foundItems) => {
+  //   if (foundItems.length === 0) {
+  //     Item.insertMany(defaultItems, (err) => {
+  //       if (err) {
+  //         console.log(err);
+  //       } else {
+  //         console.log('Added Items to DB');
+  //       }
+  //     });
+  //     res.redirect('/');
+  //   } else {
+  res.render('list', { listTitle: 'Today', newListItems: foundItems, footerText, title, dateToday });
+  //   }
+  // });
 });
 //# POST
 app.get('/', (req, res) => {
