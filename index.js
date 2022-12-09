@@ -61,7 +61,7 @@ const item3 = new Item({
 
 //# GET
 const defaultItems = [item1, item2, item3];
-app.get('/te', function (req, res) {
+app.get('/', function (req, res) {
   Item.find({}, (err, foundItems) => {
     if (foundItems.length === 0) {
       Item.insertMany(defaultItems, (err) => {
@@ -78,23 +78,23 @@ app.get('/te', function (req, res) {
   });
 });
 //# POST
-app.get('/', (req, res) => {
-  const name = 'Cats';
-  const cats = [
-    'Vhagar',
-    'Melys',
-    'Caraxes',
-    'Arrax',
-    'Sunfyre',
-    'Meraxes',
-    'Dreamfyre',
-    'Seasmoke',
-    'Syrax',
-    'Vermax',
-    'Vermithor',
-  ];
-  res.render('cats', { cats, name, title, footerText });
-});
+// app.get('/', (req, res) => {
+//   const name = 'Cats';
+//   const cats = [
+//     'Vhagar',
+//     'Melys',
+//     'Caraxes',
+//     'Arrax',
+//     'Sunfyre',
+//     'Meraxes',
+//     'Dreamfyre',
+//     'Seasmoke',
+//     'Syrax',
+//     'Vermax',
+//     'Vermithor',
+//   ];
+//   res.render('cats', { cats, name, title, footerText });
+// });
 app.post('/', (req, res) => {
   const itemName = req.body.newItem;
   const item = new Item({
