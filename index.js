@@ -31,6 +31,14 @@ const dbURL = 'mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net
 console.log(dbURL);
 mongoose.connect('mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/todolistDB', {
   useNewUrlParser: true,
+  // useCreateIndex: true,
+  // useUnifiedTopology: true,
+  // // useFindAndModify: false,
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', () => {
+  console.log('Database connected');
 });
 // mongodb://localhost:27017/todolistDB
 const itemsSchema = {
