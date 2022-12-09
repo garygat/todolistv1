@@ -29,7 +29,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 const dbURL = 'mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/?retryWrites=true&w=majority';
 console.log(dbURL);
-mongoose.connect(dbURL, { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/todolistDB', {
+  useNewUrlParser: true,
+});
 // mongodb://localhost:27017/todolistDB
 const itemsSchema = {
   name: String,
