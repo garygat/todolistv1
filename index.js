@@ -27,7 +27,7 @@ app.set;
 app.use(methodOverride(`_method`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-const dbURL = process.env.db_URL;
+const dbURL = 'mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/?retryWrites=true&w=majority';
 console.log(dbURL);
 mongoose.connect(dbURL, { useNewUrlParser: true });
 // mongodb://localhost:27017/todolistDB
@@ -150,6 +150,6 @@ app.get('/about', (req, res) => {
 });
 
 //#LISTENER
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log(`Server started on port ${port}`);
 });
