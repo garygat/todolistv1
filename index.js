@@ -10,6 +10,20 @@ const path = require('path');
 const mongoose = require(`mongoose`);
 const methodOverride = require('method-override');
 
+const dbURL = 'mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/?retryWrites=true&w=majority';
+console.log(dbURL);
+mongoose.connect('mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/todolistDB', {
+  useNewUrlParser: true,
+  // useCreateIndex: true,
+  // useUnifiedTopology: true,
+  // // useFindAndModify: false,
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', () => {
+  console.log('Database connected');
+});
+
 const port = process.env.PORT || 3000;
 const app = express();
 const title = 'To-Do List';
@@ -27,19 +41,7 @@ app.set;
 app.use(methodOverride(`_method`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-const dbURL = 'mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/?retryWrites=true&w=majority';
-console.log(dbURL);
-mongoose.connect('mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/todolistDB', {
-  useNewUrlParser: true,
-  // useCreateIndex: true,
-  // useUnifiedTopology: true,
-  // // useFindAndModify: false,
-});
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', () => {
-  console.log('Database connected');
-});
+
 // mongodb://localhost:27017/todolistDB
 const itemsSchema = {
   name: String,
@@ -60,20 +62,20 @@ const item3 = new Item({
 //# GET
 const defaultItems = [item1, item2, item3];
 app.get('/te', function (req, res) {
-  // Item.find({}, (err, foundItems) => {
-  //   if (foundItems.length === 0) {
-  //     Item.insertMany(defaultItems, (err) => {
-  //       if (err) {
-  //         console.log(err);
-  //       } else {
-  //         console.log('Added Items to DB');
-  //       }
-  //     });
-  //     res.redirect('/');
-  //   } else {
-  res.render('list', { listTitle: 'Today', newListItems: foundItems, footerText, title, dateToday });
-  //   }
-  // });
+  Item.find({}, (err, foundItems) => {
+    if (foundItems.length === 0) {
+      Item.insertMany(defaultItems, (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('Added Items to DB');
+        }
+      });
+      res.redirect('/');
+    } else {
+      res.render('list', { listTitle: 'Today', newListItems: foundItems, footerText, title, dateToday });
+    }
+  });
 });
 //# POST
 app.get('/', (req, res) => {
