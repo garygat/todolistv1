@@ -1,0 +1,21 @@
+<!-- +HEAD BOILERPLATE -->
+<%- include('partials/head') %>
+
+<body>
+   <!-- +NAVBAR BOILERPLATE -->
+   <%- include('partials/navbar') %>
+   <!-- =MAIN -->
+   <div class="container py-3">
+      <h1 class="text-crimson text-shadow-bl text-center py-2 display-1 text-ad">All Cats</h1>
+      <ul class="list group list-group-flush">
+         <!-- =GRAB CATS ARRAY -->
+         <% for (let cat of cats){  %>
+         <li class="list-group-item font-size-2 text-center text-sil"><%= cat %> </li>
+         <% } %>
+      </ul>
+   </div>
+   <!-- +FOOTER BOILERPLATE -->
+   <%- include('partials/footer') %>
+</body>
+
+</html>
