@@ -51,16 +51,16 @@ const itemsSchema = {
 
 const Item = mongoose.model('Item', itemsSchema);
 //# DEFAULT ITEMS 1
-// const item1 = new Item({
-//   name: 'Welcome to your todo list!',
-// });
-// const item2 = new Item({
-//   name: 'Click + to add new item.',
-// });
-// const item3 = new Item({
-//   name: 'Tick the checkbox to edit or delete item.',
-// });
-// const defaultItems = [item1, item2, item3];
+const item1 = new Item({
+  name: 'Welcome to your todo list!',
+});
+const item2 = new Item({
+  name: 'Click + to add new item.',
+});
+const item3 = new Item({
+  name: 'Tick the checkbox to edit or delete item.',
+});
+const defaultItems = [item1, item2, item3];
 
 //# DEFAULT ITEMS 2
 // const item1 = new Item({
