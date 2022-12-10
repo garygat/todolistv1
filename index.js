@@ -23,6 +23,8 @@ db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', () => {
   console.log('Database connected');
 });
+const todoList = 'mongodb+srv://goryoandres:maclab7200@cluster0.7ntyih8.mongodb.net/todolistDB';
+const Items = db.collection('items');
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -78,23 +80,6 @@ app.get('/', function (req, res) {
   });
 });
 //# POST
-// app.get('/', (req, res) => {
-//   const name = 'Cats';
-//   const cats = [
-//     'Vhagar',
-//     'Melys',
-//     'Caraxes',
-//     'Arrax',
-//     'Sunfyre',
-//     'Meraxes',
-//     'Dreamfyre',
-//     'Seasmoke',
-//     'Syrax',
-//     'Vermax',
-//     'Vermithor',
-//   ];
-//   res.render('cats', { cats, name, title, footerText });
-// });
 app.post('/', (req, res) => {
   const itemName = req.body.newItem;
   const item = new Item({
@@ -142,8 +127,8 @@ app.get(`/edit/:id/edit`, async (req, res) => {
   const { id } = req.params;
   console.log(id);
   const item = await Item.findById(id);
-  console.log(item.name);
-  console.log('tae', item.id);
+  // console.log(item.name);
+  // console.log('tae', item.id);
   res.render(`edit`, { title, name, id, item, footerText });
 });
 app.put(`/:id`, async (req, res) => {
@@ -169,6 +154,17 @@ app.put('/edit/:id/edit', async (req, res) => {
     console.error(err.message);
     res.send(400).send('Server Error');
   }
+});
+app.post(`/delete`, async (req, res) => {
+  // const { id } = req.params;
+  try {
+    const deleteMany = await Item.deleteMany({});
+    await Item.deleteMany({});
+    console.log('All Data successfully deleted');
+  } catch (err) {
+    console.log(err);
+  }
+  await res.redirect(`/`);
 });
 app.get('/work', (req, res) => {
   res.render('list', { listTitle: 'Work List', newListItems: workItems });

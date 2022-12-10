@@ -24,17 +24,21 @@
         <div class="col">
           <button class="newItem" type="submit" name="list">+</button>
           </form>
+          <div class="col">
+            <form action="/delete" method="post">
+              <button class="btn btn-lg rounded-2 btn-pink clear w-100" name="delete">Clear</button>
+            </form>
+          </div>
         </div>
+
+
+
+
       </div>
-
-
-
-
     </div>
   </div>
-</div>
 
-<%- include("partials/footer") -%>
-</body>
+  <%- include("partials/footer") -%>
+  </body>
 
-</html>
+  </html>
