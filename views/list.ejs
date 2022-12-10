@@ -25,8 +25,9 @@
           <button class="newItem" type="submit" name="list">+</button>
           </form>
           <div class="col">
-            <form action="/delete" method="post">
-              <button class="btn btn-lg rounded-2 btn-pink clear w-100" name="delete">Clear</button>
+            <form action="/delete" method="post"
+              onSubmit="return confirm('Are you sure you wish to clear your todo list?');">
+              <button id="deleteAll" class="btn btn-lg rounded-2 btn-pink clear w-100" name="delete">Clear</button>
             </form>
           </div>
         </div>
@@ -39,6 +40,7 @@
   </div>
 
   <%- include("partials/footer") -%>
+
   </body>
 
   </html>

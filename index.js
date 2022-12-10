@@ -50,19 +50,58 @@ const itemsSchema = {
 };
 
 const Item = mongoose.model('Item', itemsSchema);
+//# DEFAULT ITEMS 1
+// const item1 = new Item({
+//   name: 'Welcome to your todo list!',
+// });
+// const item2 = new Item({
+//   name: 'Click + to add new item.',
+// });
+// const item3 = new Item({
+//   name: 'Tick the checkbox to edit or delete item.',
+// });
+// const defaultItems = [item1, item2, item3];
 
-const item1 = new Item({
-  name: 'Welcome to your todo list!',
-});
-const item2 = new Item({
-  name: 'Click + to add new item.',
-});
-const item3 = new Item({
-  name: 'Tick the checkbox to edit or delete item.',
-});
-
+//# DEFAULT ITEMS 2
+// const item1 = new Item({
+//   name: 'Mangigil mag-isa ',
+// });
+// const item2 = new Item({
+//   name: 'Ibully si Aaron  ',
+// });
+// const item3 = new Item({
+//   name: 'Kausapin ang sarili ',
+// });
+// const item4 = new Item({
+//   name: 'Bolahin si Kalbo2 ',
+// });
+// const item5 = new Item({
+//   name: 'Tibagin ang dalawang RPG',
+// });
+// const item6 = new Item({
+//   name: 'Kumain ng Pulutan ',
+// });
+// const item7 = new Item({
+//   name: 'Kumanta ng "One Day" ',
+// });
+// const item8 = new Item({
+//   name: 'Kumain ulit ng Pulutan ',
+// });
+// const item9 = new Item({
+//   name: 'Maghanap ng ibang i-bubully  ',
+// });
+// const item10 = new Item({
+//   name: 'Saniban ng Konoha Shinobi',
+// });
+// const item11 = new Item({
+//   name: 'Tibagin ang Calamares ',
+// });
+// const item12 = new Item({
+//   name: 'Mag speed walk sa stairs ',
+// });
+// const defaultItems = [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12];
 //# GET
-const defaultItems = [item1, item2, item3];
+
 app.get('/', function (req, res) {
   Item.find({}, (err, foundItems) => {
     if (foundItems.length === 0) {
