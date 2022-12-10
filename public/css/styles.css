@@ -89,7 +89,7 @@ h1 {
 }
 
 .box {
-  max-width: 400px;
+  max-width: 350px;
   margin: 50px auto;
   background: white;
   border-radius: 10px;
@@ -136,7 +136,7 @@ form.item {
 
 button.newItem {
   min-height: 50px;
-  width: 50px;
+  min-width: 50px;
   border-radius: 50%;
   border-color: transparent;
   background-color: #e383e3;
@@ -145,6 +145,7 @@ button.newItem {
   padding: 5px;
   border-width: 0;
   transition: color 0.5s, background-color 0.5s;
+  /* margin-right: 50px; */
 }
 button:hover,
 button:focus {
@@ -161,7 +162,7 @@ input[type='text'] {
   background: transparent;
   font-size: 20px;
   font-weight: 200;
-  width: 313px;
+  /* min-width: 350px; */
 }
 
 input[type='text']:focus {
@@ -182,3 +183,15 @@ footer {
 footer .footerText {
   font-weight: 700;
 }
+/* @media only screen and (max-width: 600px) {
+  input[type='text'] {
+    min-width: 255px;
+    font-size: 1rem;
+  }
+  button.newItem {
+    min-height: 30px;
+    min-width: 30px;
+    padding: 2px;
+    font-size: 20px;
+  }
+} */

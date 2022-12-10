@@ -4,32 +4,33 @@
 <!-- +NAVBAR BOILERPLATE -->
 
 <!-- =MAIN -->
-<div class="container-fluid py-4">
+<div class="container-fluid py-4 vh-100">
    <h1 class="text-black-50 text-center py-5 display-4 text-open-sans">To-Do</h1>
-   <ul class="list group list-group-flush">
-      <!-- =GRAB COMMENTS-->
-      <div class="container-fluid py-3 text-center font-size-2 bg-light rounded">
+
+   <!-- =GRAB COMMENTS-->
+   <div class="container-fluid py-3 text-center font-size-2 bg-light rounded">
 
 
-         <!-- <p class="lead"><%=item.id%></p> -->
-         <p class=" lead"><span class="text-primary "><%= item.name %>
-            </span></p>
-         <div class="py-5 flex">
-            <div class="flex-row justify-content-center align-items-center">
-               <a href="/edit/<%= item.id %>/edit "> <button type="button"
-                     class="d-inline btn btn-primary text-white">Edit
-                  </button></a>
-               <form class="d-inline" action="/delete/<%= item.id %>" method="post">
-                  <button class="btn btn-danger text-white d-inline">Delete
-                  </button>
-               </form>
-               <a href="/"> <button type="button" class=" btn btn-warning text-white">Back to Index
-                  </button></a>
+      <!-- <p class="lead"><%=item.id%></p> -->
+      <p class=""><span class="display-6"><%= item.name %>
+         </span></p>
+      <div class="py-5 pt-5 flex">
+         <div class="flex-row pt-5 justify-content-center align-items-center">
+            <a href="/edit/<%= item.id %>/edit "> <button type="button" class="d-inline btn btn-primary text-white">Edit
+               </button></a>
+            <form class="d-inline" action="/delete/<%= item.id %>" method="post">
+               <button class="btn btn-danger text-white d-inline">Delete
+               </button>
+            </form>
+            <a href="/"> <button type="button" class=" btn btn-warning text-white">Back to Index
+               </button></a>
 
-            </div>
          </div>
-         <!-- +FOOTER BOILERPLATE -->
-         <%- include('partials/footer') %>
-         </body>
+      </div>
+   </div>
+</div>
+<!-- +FOOTER BOILERPLATE -->
+<%- include('partials/footer') %>
+</body>
 
-         </html>
+</html>
