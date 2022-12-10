@@ -176,7 +176,8 @@ input[type='text']:focus {
 }
 
 footer {
-  margin-top: 150px;
+  margin-bottom: 0;
+  margin-top: 200px;
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
